@@ -10,9 +10,9 @@ exports.addition = function (args) {
 // Returns difference of two numbers
 exports.subtraction = function (args) {
     if (args.length > 2) {
-        return "can take only 2 arguments";
+        throw new Error('can take only 2 arguments');
     }
-    return args[0] - args[1]
+    return args[0] - args[1];
 };
 
 // Returns product of two or n numbers
@@ -27,16 +27,10 @@ exports.multiplication = function (args) {
 //Returns the quotient after the division of two numbers
 exports.division = function (args) {
     if (args.length > 2) {
-        return "can take only 2 arguments";
+        throw new Error('can take only 2 arguments');
     }
-
-    try {
-        if (args[1] == 0) {
-            throw 'Division By zero is not possible';
-        }
-        return args[0] / args[1]
+    else if (args[1] == 0) {
+        throw new Error('Division By zero is not possible');
     }
-    catch (err) {
-        return err;
-    }
+    return args[0] / args[1];
 }
